@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="最大连续子序列/最大连续子序列.vcxproj" />
+  <Project Path="最大连续子序列/最大连续子序列.vcxproj" Id="ad907039-ed86-4c8e-9c3e-b3afbccb7b41" />
 </Solution>
