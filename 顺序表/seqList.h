@@ -124,6 +124,11 @@ void seqList<elemType>::doubleSpace()
 template <class elemType>
 void seqList<elemType>::erase(int i)
 {
+	if (i < 0 || i >= currentLength)
+	{
+		std::cout << "Index is out of range" << std::endl;
+		return;
+	}
 	elemType flag = data[i];
 	while (search(flag) != -1)
 	{
