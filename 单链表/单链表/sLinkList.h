@@ -55,6 +55,7 @@ void sLinkList<elemType>::clear()
 		p = q;
 	}
 	head->next = NULL;
+	currentLength = 0;
 }
 template <class elemType>
 int sLinkList<elemType>::length() const
