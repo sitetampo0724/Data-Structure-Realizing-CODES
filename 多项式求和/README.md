@@ -1,0 +1,1 @@
+This polynomial summation feature is not complete, and the linked list has not implemented basic functions, but it is quite instructive.
