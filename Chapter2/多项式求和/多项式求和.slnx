@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="多项式求和/多项式求和.vcxproj" Id="e50b8f6c-089d-4811-838a-6f684deb8ddb" />
+</Solution>
