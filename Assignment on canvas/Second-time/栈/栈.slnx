@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="栈/栈.vcxproj" Id="0e105745-4e2c-4bf5-940f-54e1e9f76996" />
+</Solution>

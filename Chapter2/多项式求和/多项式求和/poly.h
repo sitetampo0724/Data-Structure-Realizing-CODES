@@ -27,13 +27,12 @@ Node* add(Node* exp1, Node* exp2)
 			p->next = new Node(exp2->cof, exp2->exp, NULL);
 			exp2 = exp2->next;
 		}
-		else if (exp1->cof + exp2->cof != 0)
-		{
+		else 
+			if (exp1->cof + exp2->cof != 0){
 			p->next = new Node(exp1->cof + exp2->cof, exp2->exp, NULL);
 			exp2 = exp2->next;
-			exp1 = exp1->next;
-		}
-		p = p->next;
+			exp1 = exp1->next;}
+			p = p->next;
 	}
 	if (exp1 != NULL)
 	{
