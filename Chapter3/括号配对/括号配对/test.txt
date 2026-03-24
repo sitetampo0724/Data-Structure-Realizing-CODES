@@ -1,0 +1,224 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+// ========== 错误1: 缺少右括号 ==========
+class MissingBrace {
+public:
+    void method1() {
+        if (true) {
+            cout << "This is missing a closing brace" << endl;
+        // 缺少 } 
+    }
+    
+    void method2() {
+        vector<int> vec = {1, 2, 3;
+        // 缺少 }
+    }
+// 缺少类的结束 }
+
+// ========== 错误2: 缺少左括号 ==========
+class MissingLeftBrace {
+public:
+    void method1() {
+        cout << "Missing opening brace" << endl;
+    }
+    // 缺少 { 
+    void method2() 
+        cout << "This function has no opening brace" << endl;
+    }
+};
+
+// ========== 错误3: 多余右括号 ==========
+class ExtraBrace {
+public:
+    void method1() {
+        cout << "Extra closing brace below" << endl;
+    }}
+    // 多了一个 }
+    
+    void method2() {
+        if (true) {
+            cout << "Nested extra brace" << endl;
+        }}}  // 多了两个 }
+};
+
+// ========== 错误4: 多余左括号 ==========
+class ExtraLeftBrace {
+public:
+    void method1() {{
+        cout << "Two opening braces but only one closing" << endl;
+    }  // 缺少一个 }
+    
+    void method2() {
+        if (true) {{
+            cout << "Nested extra opening brace" << endl;
+        }  // 缺少一个 }
+    }
+};
+
+// ========== 错误5: 括号顺序错误 ==========
+class WrongOrder {
+public:
+    void method1() {
+        if (true) {
+            cout << "Wrong order: ) should be }" << endl;
+        )  // 应该是 } 而不是 )
+    }
+    
+    void method2() {
+        vector<int> arr = [1, 2, 3);  // 应该是 ] 而不是 )
+    }
+    
+    void method3() {
+        cout << "Mismatched brackets" << endl;
+        ]  // 不应该出现 ]
+    }
+};
+
+// ========== 错误6: 括号类型不匹配 ==========
+class TypeMismatch {
+public:
+    void method1() {
+        if (true) {
+            cout << "Opening with (, closing with ]" << endl;
+        ]  // 应该是 } 或 )，但用了 ]
+    }
+    
+    void method2() {
+        vector<int> vec = [1, 2, 3};  // 应该是 ] 但用了 }
+    }
+    
+    void method3() {
+        for (int i = 0; i < 10; i++) {
+            cout << i << endl;
+        )  // 应该是 } 但用了 )
+    }
+};
+
+// ========== 错误7: 嵌套括号不匹配 ==========
+class NestedMismatch {
+public:
+    void method1() {
+        if (true) {
+            while (false) {
+                cout << "Deep nesting with mismatch" << endl;
+            )  // 应该是 } 但用了 )
+        }
+    }
+    
+    void method2() {
+        vector<vector<int>> matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9]
+        };  // 第三行用了 ] 而不是 }
+    }
+};
+
+// ========== 错误8: 字符串/注释中的括号干扰 ==========
+class StringBracket {
+public:
+    void method1() {
+        string str = "This string has ( and ) but should be ignored";
+        cout << str << endl;
+        // 注释中的 { } 也应该被忽略
+        // 但实际处理时可能误判 }
+    }
+    
+    void method2() {
+        string regex = "\\([0-9]+\\)";  // 转义括号
+        cout << regex << endl;
+    )  // 缺少 }
+};
+
+// ========== 错误9: 混合多个错误 ==========
+class MultipleErrors {
+public:
+    void method1() {
+        if (true {
+            cout << "Missing ) after condition" << endl;
+        }
+    
+    void method2() {
+        vector<int> vec = [1, 2, 3);  // 错误1: [ 和 ) 不匹配
+        for (auto x : vec {
+            cout << x << endl;  // 错误2: 缺少 )
+        }  // 错误3: 多了一个 }
+    
+    void method3() {
+        if (x > 0) {
+            cout << "Positive" << endl;
+        else {
+            cout << "Negative" << endl;  // 缺少 }
+    }
+// 缺少类的结束括号
+
+// ========== 错误10: 空括号问题 ==========
+class EmptyBrackets {
+public:
+    void method1() {
+        if () {  // 空条件，缺少表达式
+            cout << "Empty condition" << endl;
+        }
+    }
+    
+    void method2() {
+        vector<int> vec = {};  // 空初始化列表，这个其实是合法的
+        cout << vec.size() << endl;
+    }  // 这个是正确的
+    
+    void method3() {
+        for (;;) {  // 空循环条件，合法
+            break;
+        }
+    }
+// 缺少 }
+
+// ========== 错误11: 函数参数括号问题 ==========
+class FunctionBracket {
+public:
+    void method1(
+        cout << "Missing closing parenthesis" << endl;
+    }
+    
+    void method2(int a, string b {
+        cout << a << b << endl;
+    )  // 应该是 } 但用了 )
+    
+    void method3(vector<int> vec) {
+        cout << "Correct" << endl;
+    }  // 这个正确
+};
+
+// ========== 错误12: 数组/模板括号问题 ==========
+template <typename T
+class TemplateError {  // 缺少 >
+public:
+    void method() {
+        T data[10;
+        // 缺少 ]
+        cout << data[0] << endl;
+    }
+};
+
+// ========== 错误13: Lambda 表达式括号错误 ==========
+class LambdaError {
+public:
+    void method() {
+        auto lambda = [](int x {
+            return x * 2;  // Lambda 参数缺少 )
+        };
+        
+        auto lambda2 = [](int x) {
+            return x * 2;
+        };  // 这个正确
+        
+        auto lambda3 = [) (int x) {
+            return x * 2;
+        };  // 捕获列表用了 )
+    }
+};
+
+// 最后缺少全局作用域的结束
