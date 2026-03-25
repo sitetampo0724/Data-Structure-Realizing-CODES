@@ -1,0 +1,1 @@
+Since you have already learned how cs calculates numbers, this 24points game is for u to relax

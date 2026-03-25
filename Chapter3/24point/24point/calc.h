@@ -8,9 +8,9 @@
 using namespace std;
 class calc {
 	char* expression;
-	enum token {OPAREN,ADD,SUB,MULTI,DIV,EXP,CPAREN,VALUE,EOL};
+	enum token { OPAREN, ADD, SUB, MULTI, DIV, EXP, CPAREN, VALUE, EOL };
 	void BinaryOp(enum token type, stack<int, list<int>>& s);
-	token GetOp(int &value);
+	token GetOp(int& value);
 public:
 	calc(char* c)
 	{
@@ -18,7 +18,7 @@ public:
 		strcpy_s(expression, strlen(c) + 1, c);
 	}
 	~calc() {
-      delete expression;
+		delete expression;
 	}
 	int result();
 };
@@ -54,7 +54,7 @@ int calc::result() {
 		}
 		case ADD:case SUB: {
 			while (!op.empty() && (op.top() == MULTI || op.top() == DIV || op.top() == EXP || op.top() == SUB
-				|| op.top() == ADD ))
+				|| op.top() == ADD))
 			{
 				BinaryOp(op.top(), num);
 				op.pop();
@@ -71,7 +71,7 @@ int calc::result() {
 	}
 	if (num.empty())
 	{
-		cout << "No result!" <<endl;
+		cout << "No result!" << endl;
 		return 0;
 	}
 	int result_value = num.top();
@@ -99,7 +99,7 @@ void calc::BinaryOp(enum token type, stack<int, list<int>>& s)
 	}
 	top2 = s.top();
 	s.pop();
-    switch (type) {
+	switch (type) {
 	case ADD: {
 		result = top2 + top;
 		s.push(result);
@@ -134,7 +134,7 @@ void calc::BinaryOp(enum token type, stack<int, list<int>>& s)
 		exit(1);
 	}
 	}
-		
+
 }
 calc::token calc::GetOp(int& value)
 {
@@ -154,7 +154,7 @@ calc::token calc::GetOp(int& value)
 		}
 		return VALUE;
 	}
-    switch (*expression)
+	switch (*expression)
 	{
 	case '(': expression++; return OPAREN;
 	case ')': expression++; return CPAREN;

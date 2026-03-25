@@ -2,7 +2,7 @@
 int main()
 {
 	string p;
-	cin >> p;
+	getline(cin, p);
 	char* a;
 	a = new char[p.length() + 1];
 	for (int i = 0;i < p.length();i++)
