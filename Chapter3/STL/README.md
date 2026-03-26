@@ -1,0 +1,1 @@
+STL if you do not input a second argument(it uses queue)
