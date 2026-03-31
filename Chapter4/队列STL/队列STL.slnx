@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="队列/队列.vcxproj" Id="85ded78e-ae11-4337-9804-0ccb00c70837" />
+  <Project Path="队列STL/队列STL.vcxproj" Id="4403d0ee-3fb6-4976-8d88-b279e64db996" />
 </Solution>
