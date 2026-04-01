@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="火车重排/火车重排.vcxproj" Id="d24e193d-fcf2-4a28-9c83-2f4d103b26b6" />
+</Solution>
