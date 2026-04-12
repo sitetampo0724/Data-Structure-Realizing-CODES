@@ -22,3 +22,9 @@ ___
 ## [Chapter4](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter4)
 
 这一章是**队列**
+
+___
+> 从这一章开始我们进入了一种全新的数据结构类型————树 :rocket:
+## [Chapter6](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter6)
+
+这一章讲**树**
