@@ -28,3 +28,9 @@ ___
 ## [Chapter6](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter6)
 
 这一章讲**树**
+
+是一个非常重要的数据结构类型，而且没有STL库支持，所以需要我们熟练掌握
+
+## [Chapter7](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter7)
+
+这一章讲**优先级队列**，基于树的物理结构以及特性
