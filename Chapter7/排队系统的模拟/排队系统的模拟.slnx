@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="排队系统的模拟/排队系统的模拟.vcxproj" Id="d8084621-30d8-41ec-a74b-04d1feb22221" />
+</Solution>
