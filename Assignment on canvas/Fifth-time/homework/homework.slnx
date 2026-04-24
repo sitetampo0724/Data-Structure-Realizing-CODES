@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="STL中的优先级队列/STL中的优先级队列.vcxproj" Id="037345fd-11e0-40fd-95b8-af6af4fba254" />
+  <Project Path="homework/homework.vcxproj" Id="0729c862-0447-4501-af01-a377e42c79d1" />
 </Solution>
