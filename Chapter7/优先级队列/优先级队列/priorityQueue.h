@@ -110,7 +110,7 @@ void priorityQueue<Type>::doubleSpace()
 	Type* temp = array;
 	maxSize *= 2;
 	array = new Type[maxSize];
-	for (int i = 0;i <= cuurentSize;i++)
+	for (int i = 0;i <= currentSize;i++)
 		array[i] = temp[i];
 	delete[]temp;
 }
