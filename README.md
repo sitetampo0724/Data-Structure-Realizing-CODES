@@ -37,3 +37,5 @@ ___
 
 ———
 > 从这一章开始我们进入了**集合结构**的世界 :star_struck:
+
+## [Chapter8](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter8)
