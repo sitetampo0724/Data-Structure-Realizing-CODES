@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="优先级队列/优先级队列.vcxproj" Id="ef221483-386d-44cf-80ae-6b7ffe5c5f31" />
+  <Project Path="5/5.vcxproj" />
 </Solution>
