@@ -88,7 +88,7 @@ template <class Type>
 void priorityQueue<Type>::buildHeap()
 {
 	for (int i = currentSize / 2;i > 0;i--)
-		perlocate(i);
+		perlocateDown(i);
 }
 //O(N)
 
