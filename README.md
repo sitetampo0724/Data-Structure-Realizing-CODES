@@ -33,9 +33,11 @@ ___
 
 ## [Chapter7](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter7)
 
-这一章讲**优先级队列**，基于树的物理结构以及特性，可是非常有意思
+这一章讲**优先级队列**，基于树的物理结构以及特性，非常有意思
 
 ———
 > 从这一章开始我们进入了**集合结构**的世界 :star_struck:
 
 ## [Chapter8](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter8)
+
+这一章比较水，主要掌握一些基本的查找算法
