@@ -41,3 +41,7 @@ ___
 ## [Chapter8](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter8)
 
 这一章比较水，主要掌握一些基本的查找算法
+
+## [Chapter9](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter9)
+
+这一章我们来介绍树，主要是基于二叉树的实现
