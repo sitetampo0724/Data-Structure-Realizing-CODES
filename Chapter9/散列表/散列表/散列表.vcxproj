@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="hashSearchTable.h" />
+    <ClInclude Include="openHashTable.h" />
     <ClInclude Include="Set.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

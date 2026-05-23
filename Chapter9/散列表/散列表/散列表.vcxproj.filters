@@ -21,5 +21,8 @@
     <ClInclude Include="hashSearchTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="openHashTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
