@@ -45,4 +45,9 @@ ___
 
 ## [Chapter9](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter9)
 
-这一章我们来介绍树，主要是基于二叉树的实现
+这一章我们来介绍查找表
+
+## [Chapter10](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter10)
+
+这一章我们介绍排序，排序算法是非常重要的。但是掌握了排序算法就等于掌握了集合 :sweat_smile:
+
