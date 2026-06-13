@@ -51,3 +51,7 @@ ___
 
 这一章我们介绍排序，排序算法是非常重要的。但是掌握了排序算法就等于掌握了集合 :sweat_smile:
 
+## [Chapter13](https://github.com/sitetampo0724/Data-Structure-Realizing-CODES/tree/master/Chapter13)
+
+我学算法第一个接触就是depth-first search，是非常有意思的一章。
+
