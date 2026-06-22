@@ -18,9 +18,25 @@ public:
 
 	void dfs() const;
 	void bfs() const;
+	void EulerCircuit(TypeOfVer start) const;
+	verNode* clone() const;
+	void EulerCircuit(int v, EulerNode*& beg, EulerNode*& end) const;
+	void topSort()const;
+	void criticalPath()const;
 
 private:
 	void dfs(int v, bool visited[]) const;
+
+	struct EulerNode
+	{
+		int NodeNum;
+		EulerNode* next;
+		EulerNode(int ver)
+		{
+			NodeNum = ver;
+			next = nullptr;
+		}
+	};
 
 	struct edgeNode
 	{
@@ -53,7 +69,7 @@ private:
 
 
 template <class TypeOfVer, class TypeOfEdge>
-adjListGraph<TypeOfVer, TypeOfEdge>::adjListGraph(int vSize, const TypeOfEdge d[])
+adjListGraph<TypeOfVer, TypeOfEdge>::adjListGraph(int vSize, const TypeOfVer d[])
 {
 	int i, j;
 
@@ -76,7 +92,7 @@ adjListGraph<TypeOfVer, TypeOfEdge>::~adjListGraph()
 		p = verList[i].head;
 		while (p != nullptr)
 		{
-			verList = p->next;
+			verList[i].head = p->next;
 			delete p;
 		}
 	}
@@ -90,7 +106,7 @@ void adjListGraph<TypeOfVer, TypeOfEdge>::insert(TypeOfVer X, TypeOfVer y, TypeO
 	int u = find(X);
 	int v = find(y);
 
-	typeList[u].head = new edgeNode(v, w,typeList[u].head);
+	verList[u].head = new edgeNode(v, w, verList[u].head);
 
 	++edges;
 }
@@ -173,11 +189,11 @@ void adjListGraph<TypeOfVer, TypeOfEdge>::dfs(int v, bool visited[]) const
 template <class TypeOfVer, class TypeOfEdge>
 void adjListGraph<TypeOfVer, TypeOfEdge>::bfs() const
 {
-	bool* visited = new bool[vers];
 	int currentNode;
 	queue<int> q;
 	edgeNode* p;
 
+	bool* visited = new bool[vers];
 	for (int i = 0;i < vers;i++)
 		visited[i] = false;
 
@@ -202,5 +218,200 @@ void adjListGraph<TypeOfVer, TypeOfEdge>::bfs() const
 		}
 		cout << endl;
 	}
+
+}
+
+
+template <class TypeOfVer,class TypeOfEdge>
+void  adjListGraph<TypeOfVer, TypeOfEdge>::EulerCircuit(TypeOfVer start) const
+{
+	if (Edges == 0)
+		return;
+
+	for (int i = 0;i < vers;i++)
+	{
+		int degree = 0;
+		edgeNode* p = verList[i].head;
+		while (p != NULL)
+		{
+			degree++;
+			p = p->next;
+		}
+		if (degree % 2 != 0)
+			return;
+	}
+
+	int i = find(start);
+
+	VerNode* temp = clone();
+
+	EulerNode* beg, * end, * tb, * te, * p, * q;
+	EulerCircuit(i, beg, end);
+
+	while (true) {
+		p = beg;
+		while (p->next != nullptr)
+		{
+			if (verlist[p->next.Nodenum].head != nullptr)
+				break;
+			p = p->next;
+		}
+		
+		if (p->next == nullptr) break;
+
+		q = p->next;
+		EulerCircuit(q->NodeNum, tb, te);
+
+		p->next = tb;
+		te->next = q->next;
+		
+		delete q;
+	}
+
+	delete[]verList;
+	verList = temp;
+
+	while (begin != nullptr)
+	{
+		cout << verList[begin->NodeNum].ver << '\t';
+		EulerNode* temp = begin;
+		begin = begin->next;
+		delete temp;
+	}
+}
+
+
+template <class TypeOfVer, class TypeOfEdge>
+adjListGraph<TypeOfVer, TypeOfEdge>::verNode* adjListGraph<TypeOfVer, TypeOfEdge>::clone() const
+{
+	verNode* temp = new verNode[vers];
+
+	for (int i = 0;i < vers;i++)
+	{
+		temp[i].ver = verList[i].ver;
+
+		edgeNode* p = verList[i].head;
+		while (p != nullptr)
+		{
+			temp[i].head = new edgeNode(p->end, p->weight, temp[i].head);
+			p = p->next;
+		}
+	}
+
+	return temp;
+}
+
+template <class TypeOfVer, class TypeOfEdge>
+void adjListGraph<TypeOfVer, TypeOfEdge>::EulerCircuit(int v, EulerNode*& beg, EulerNode*& end) const
+{
+	
+	begin = end = new EulerNode(v);
+
+	while (verList[v].head != nullptr)
+	{
+		int nextNode = verList[v].head->end;
+		remove(v, nextNode);
+		remove(nextNode, v);
+		v = nextNode;
+		end->next = new EulerNode(v);
+		end = end->next;
+	}
+}
+
+
+template <class TypeOfVer, class TypeOfEdge>
+void adjListGraph<TypeOfVer, TypeOfEdge>::topSort()const
+{
+	linkQueue<int> q;
+	
+	int* inDegree = new int[Vers];
+	for (int i = 0;i < vers;i++) inDegree[i] = 0;
+	for (int i = 0;i < vers;i++)
+	{
+		edgeNode* p = verList[i].head;
+		while (p != nullptr)
+		{
+			inDegree[p->end]++;
+			p = p->next;
+		}
+	}
+
+	for (int i = 0;i < vers;i++)
+		if (inDegree[i] == 0) q.enqueue(i);
+
+	while (!q.empty())
+	{
+		int current = q.dequeue();
+		cout << verList[current].ver << '\t';
+		p = verList[current].head;
+		while (p != nullptr)
+		{
+			inDegree[p->end]--;
+			if (inDegree[p->end] == 0)
+				q.enqueue(p->end);
+			p = p->next;
+		}
+	}
+    
+	cout << endl;
+}
+
+
+template <class TypeOfVer, class TypeOfEdge>
+void adjListGraph<TypeOfVer, TypeOfEdge>::criticalPath()const
+{
+	TypeOfEdge* ee = new TypeOfEdge[vers];
+	TypeOfEdge* le = new TypeOfEdge[vers];
+	int* top = new int[vers];
+	int* inDegree = new int[vers];
+	linkQueue<int> q;
+	edgeNode* p
+
+	for (int i = 0;i < vers;i++) inDegree[i] = 0;
+	for (int i = 0;i < vers;i++)
+	{
+		p = verList[i].head;
+		while (p != nullptr)
+		{
+			inDegree[p->end]++;
+			p = p->next;
+		}
+	}
+
+	int i = 0;
+	while (!q.empty())
+	{
+		int current = q.dequeue();
+		top[i++] = current;
+		p = verList[current].head;
+		while (p != nullptr)
+		{
+			inDegree[p->end]--;
+			if (inDegree[p->end] == 0)
+				q.enqueue(p->end);
+			p = p->next;
+		}
+	}
+
+	for (int i = 0;i < vers;i++) ee[i] = 0;
+	for (int i = 0;i < vers;i++) {
+		for(p=verList[top[i]].head;p!=nullptr;p=p->next)
+			if(ee[p->end]<ee[i]+p->weight)
+				ee[p->end] = ee[i] + p->weight;
+	}
+
+	for (int i = 0;i < vers;i++) le[i] = ee[top[vers - 1]];
+	for(int i=vers-1;i>=0;i--)
+	{
+		for(p=verList[top[i]].head;p!=nullptr;p=p->next)
+			if(le[p->end]>le[i]-p->weight)
+				le[p->end] = le[i] - p->weight;
+	}
+
+	for (int i = 0;i < vers;i++)
+	    if(le[top[i]]==ee[top[i]])
+	        cout << verList[top[i]].ver << '\t';
+
+	cout << endl;
 
 }
