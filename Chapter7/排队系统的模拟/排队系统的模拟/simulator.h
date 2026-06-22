@@ -17,7 +17,7 @@ class simulator {
 	struct eventT {
 		int time;
 		int type; // 0 for arrival, 1 for departure
-		bool operator> (const eventT& e) const
+		bool operator > (const eventT& e) const
 		{
 			return time > e.time;
 		}

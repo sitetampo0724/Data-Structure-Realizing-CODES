@@ -79,7 +79,7 @@ template <class Type>
 Type priorityQueue<Type>::deQueue()
 {
 	Type temp = array[1];
-	array[1] = array[currentSize];
+	array[1] = array[currentSize--];
 	percolateDown(1);
 	return temp;
 }
@@ -88,7 +88,7 @@ template <class Type>
 void priorityQueue<Type>::buildHeap()
 {
 	for (int i = currentSize / 2;i > 0;i--)
-		perlocateDown(i);
+		percolateDown(i);
 }
 //O(N)
 

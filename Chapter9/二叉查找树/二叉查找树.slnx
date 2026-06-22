@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="二叉查找树/二叉查找树.vcxproj" />
+  <Project Path="二叉查找树/二叉查找树.vcxproj" Id="5d51568d-858b-4fea-a39d-ed25f0d8b62f" />
 </Solution>

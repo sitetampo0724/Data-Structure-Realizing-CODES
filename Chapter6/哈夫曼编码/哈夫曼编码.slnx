@@ -4,5 +4,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="哈夫曼编码/哈夫曼编码.vcxproj" />
+  <Project Path="哈夫曼编码/哈夫曼编码.vcxproj" Id="caae1545-6317-4d1a-abb3-36cd3365d466" />
 </Solution>

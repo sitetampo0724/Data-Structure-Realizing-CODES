@@ -39,16 +39,16 @@ private:
 template <class KEY, class OTHER>
 SET<KEY, OTHER>* AvlTree<KEY, OTHER>::find(const KEY& x) const
 {
-	AvlNode* curretn = root;
-	while (t != nullptr && t->data.key != x)
+	AvlNode* current = root;
+	while (current != nullptr && current->data.key != x)
 	{
-		if (t->data.key > x)
-			t = t->left;
+		if (current->data.key > x)
+			current = current->left;
 		else
-			t = t->right;
+			current = current->right;
 	}
-	if (t == nullptr)return nullptr;
-	else return (&t->data) t;
+	if (current == nullptr)return nullptr;
+	else return (&current->data);
 }
 
 template <class KEY, class OTHER>
@@ -118,7 +118,7 @@ void AvlTree<KEY, OTHER>::insert(const SET<KEY, OTHER>& x, AvlNode*& t)
 		}
 	}
 
-	t->height = max(height(t->left), height(t->right)) + 1;
+	t->height = max(height(t->left), height(t->right)) + 1;//it is critical
 }
 
 template <class KEY, class OTHER>
@@ -185,7 +185,7 @@ bool AvlTree<KEY, OTHER>::adjust(AvlNode*& t, int subTree)
 			return false;
 		}
 		LL(t);
-		if (height(t->left->right) == height(t->left->left)) return false;
+		if (height(t->right) == height(t->left)) return false;
 		else return true;
 	}
 	else{
@@ -197,7 +197,7 @@ bool AvlTree<KEY, OTHER>::adjust(AvlNode*& t, int subTree)
 			return false;
 		}
 		RR(t);
-		if (height(t->left->right) == height(t->left->left)) return false;
+		if (height(t->right) == height(t->left)) return false;
 		else return true;
 	}
 }

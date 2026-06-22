@@ -32,7 +32,7 @@ linkQueue<elemType>::~linkQueue()
 		node* temp;
 		temp = front;
 		front = front->next;
-		delete front;
+		delete temp;
 	}
 	rear = nullptr;
 }
@@ -50,8 +50,8 @@ void linkQueue<elemType>::enQueue(const elemType& x)
 	{
 		rear=rear->next = new node(nullptr, x);
 	}
-	front = new node(nullptr, x);
-	rear = front;
+	rear = front = new node(nullptr, x);
+	
 }
 template <class elemType>
 elemType linkQueue<elemType>::deQueue()
@@ -63,7 +63,7 @@ elemType linkQueue<elemType>::deQueue()
 	elemType value = front->data;
 	node* temp = front;
 	front = front->next;
-	if (front == nullptr)rear = NULL;
+	if (front == nullptr)rear = nullptr;
 	delete temp;
 	return value;
 }
