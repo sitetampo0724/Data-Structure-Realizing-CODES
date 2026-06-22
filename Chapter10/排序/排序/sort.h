@@ -102,7 +102,7 @@ void SORT<KEY, OTHER>::heapSort(SET<KEY, OTHER> a[], int size)
 		temp = a[0];
 		a[0] = a[i];
 		a[i] = temp;
-		perlocate(a, 0, i);
+		perlocateDown(a, 0, i);
 	}
 }
 
@@ -212,7 +212,7 @@ void SORT<KEY, OTHER>::merge(SET<KEY, OTHER> a[], int low, int mid, int high)
 {
 	SET<KEY, OTHER>* temp = new SET<KEY, OTHER>[high - low + 1];
 
-	int i = left, j = mid;k = 0;
+	int i = low, j = mid+1,k = 0;
 
 	while (i < mid && j <= high)
 		if (a[i].key < a[j].key) temp[k++] = a[i++];
@@ -220,7 +220,7 @@ void SORT<KEY, OTHER>::merge(SET<KEY, OTHER> a[], int low, int mid, int high)
 	while (i < mid) temp[k++] = a[i++];
 	while (j <=high)temp[k++] = a[j++];
 
-	for (int i = 0, k = left;k <= high;)
+	for (int i = 0, k = low;k <= high;)
 		a[k++] = temp[i++];
 
 	delete[]temp;
@@ -241,16 +241,18 @@ void SORT<KEY, OTHER>::bucketSort(node*& p)
 	else while (max > 0) { ++len;max /= 10;}
 
 	for (i = 0;i < len;i++){
-		for (j = 0;j < 10;j++) bucket[j] = last[j] = nullptr;
+		for (j = 0;j < 10;j++) bucket[j] = last[j] = nullptr;// it is extremely critical
 		while (p != nullptr) {
 			k = p->data.key / base % 10;
 			if (bucket[k] == nullptr) bucket[k] = last[k] = p;
-			else last[k] = last[k->next] = p;
+			else last[k] = last[k]->next = p;
 			p = p->next;
 		}
+
 		p = nullptr;
+
 		for (j = 0;j < 10;j++) {
-			if (bucket[j] == null) continue;
+			if (bucket[j] == nullptr) continue;
 			if (p == nullptr) p = bucket[j];
 			else tail->next = bucket[j];
 			tail = last[j];
